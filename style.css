@@ -1,68 +1,100 @@
-/* General Styles */
+/* Apply background to the entire page */
 body {
-    font-family: Arial, sans-serif;
-    max-width: 600px;
-    margin: auto;
-    padding: 20px;
-    background-color: #f9f9f9;
+  background-image: url('background.png'); /* Use the uploaded image */
+  background-size: cover; /* Ensures the image covers the entire screen */
+  background-position: center; /* Centers the image */
+  background-attachment: fixed; /* Keeps background fixed while scrolling */
+  background-repeat: no-repeat; /* Prevents repetition */
+  color: white; /* Ensures text is readable */
+  font-family: 'Poppins', sans-serif; /* Modern font for better UI */
+  margin: 0;
+  padding: 0;
 }
 
-/* Welcome Screen Styles */
-.welcome-screen {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: url('background-image.jpg') no-repeat center center;
-    background-size: cover;
-    color: white;
-    text-align: center;
+/* Main container styling */
+.container {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.7); /* Dark transparent background */
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
+  text-align: center;
 }
-
-.logo-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+/* Header Section */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
 }
 
 .logo {
-    width: 100px;
-    margin-bottom: 20px;
+  width: 120px;  /* Adjust size as needed */
+  height: auto;
+  margin-right: 15px;
+  border-radius: 10px; /* Adds rounded corners for a sleek look */
 }
 
-.welcome-screen h1 {
-    font-size: 2.5rem;
+/* Title styling */
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
 }
 
-/* Investment Tips Toggle Bar */
-#investment-tips {
-    background-color: #007acc;
-    color: white;
-    padding: 10px;
-    font-size: 16px;
-    text-align: center;
-    margin-bottom: 20px;
+/* Input fields */
+input, select, button {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
 }
 
-/* Budget Tracker Section Styles */
-#income-section, #expense-section, #summary-section, #currency-section {
-    margin-bottom: 20px;
-}
-
+/* Buttons */
 button {
-    margin-top: 5px;
-    padding: 5px 10px;
-    color: white;
-    background-color: #4CAF50;
-    border: none;
-    cursor: pointer;
+  background: #28a745;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-ul {
-    list-style-type: none;
-    padding: 0;
+button:hover {
+  background: #218838;
 }
 
-li {
-    padding: 5px 0;
+/* Transaction list */
+.transaction-list {
+  margin-top: 20px;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+}
+
+.transaction-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.transaction-item.income {
+  border-left: 5px solid #28a745;
+}
+
+.transaction-item.expense {
+  border-left: 5px solid #dc3545;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.9rem;
+  opacity: 0.8;
 }

@@ -1,72 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Piggy - The Budget Tracker</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Piggy - The Budget Tracker</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
-    <!-- Welcome Screen with Logo -->
-    <div class="welcome-screen">
-        <div class="logo-container">
-            <img src="path_to_logo/logo.png" alt="Piggy Logo" class="logo">
-            <h1>Piggy - The Budget Tracker</h1>
-        </div>
+  <div class="container">
+    <!-- Header Section -->
+    <header>
+      <img src="img.png" class="logo" alt="Piggy Bank Logo">
+      <h1>Piggy - The Budget Tracker</h1>
+    </header>
+
+    <!-- Investment Tips -->
+    <div class="investment-tips">
+      <p id="tip-text">Loading latest investment tips...</p>
     </div>
 
-    <!-- Toggle Bar for Investment Tips -->
-    <div id="investment-tips">
-        <span id="tip-text">Investment Tip: Diversify your portfolio to minimize risk.</span>
+    <!-- Currency Conversion -->
+    <div class="currency-section">
+      <label for="currency">Convert Currency:</label>
+      <select id="currency" onchange="convertCurrency()">
+        <option value="USD" selected>USD</option>
+        <option value="EUR">EUR</option>
+        <option value="GBP">GBP</option>
+        <option value="INR">INR</option>
+        <option value="JPY">JPY</option>
+      </select>
     </div>
 
-    <!-- Budget Tracker Form and Display -->
-    <div class="content">
-        <h1>Budget Tracker</h1>
-        
-        <!-- Currency Conversion -->
-        <div id="currency-section">
-            <label for="currency">Select Currency:</label>
-            <select id="currency" onchange="convertCurrency()">
-                <option value="USD">USD</option>
-                <option value="EUR">EUR</option>
-                <option value="GBP">GBP</option>
-                <option value="INR">INR</option>
-                <option value="JPY">JPY</option>
-            </select>
-        </div>
+    <!-- Income & Expense Dashboard -->
+    <div class="dashboard">
+      <div class="card income-card">
+        <h2>Income</h2>
+        <p>Total: <span id="total-income">0</span> <span id="currency-symbol">$</span></p>
+        <input type="number" id="income" placeholder="Enter your income">
+        <button onclick="setIncome()">Set Income</button>
+      </div>
 
-        <!-- Income Section -->
-        <div id="income-section">
-            <h2>Income</h2>
-            <input type="number" id="income" placeholder="Enter income amount">
-            <button onclick="setIncome()">Set Income</button>
-            <p>Total Income: <span id="total-income">0.00</span> <span id="currency-label"></span></p>
-        </div>
-
-        <!-- Expense Section -->
-        <div id="expense-section">
-            <h2>Expenses</h2>
-            <input type="text" id="expense-name" placeholder="Expense name">
-            <input type="number" id="expense-amount" placeholder="Expense amount">
-            <input type="date" id="expense-date">
-            <button onclick="addExpense()">Add Expense</button>
-            <ul id="expense-list"></ul>
-        </div>
-
-        <!-- Summary Section -->
-        <div id="summary-section">
-            <h2>Summary</h2>
-            <p>Total Expenses: <span id="total-expenses">0.00</span> <span id="currency-label"></span></p>
-            <p>Balance: <span id="balance">0.00</span> <span id="currency-label"></span></p>
-            <button onclick="clearBudgetData()">Clear All Data</button>
-        </div>
-
-        <!-- Expense Pie Chart -->
-        <canvas id="expenseChart" width="400" height="400"></canvas>
+      <div class="card expense-card">
+        <h2>Add Expense</h2>
+        <input type="text" id="expense-name" placeholder="Expense name">
+        <input type="number" id="expense-amount" placeholder="Expense amount">
+        <input type="date" id="expense-date">
+        <button onclick="addExpense()">Add Expense</button>
+      </div>
     </div>
 
-    <script src="script.js"></script>
+    <!-- Summary & Expense Breakdown -->
+    <div class="summary">
+      <h2>Summary</h2>
+      <p>Total Expenses: <span id="total-expenses">0</span> <span id="currency-symbol-exp">$</span></p>
+      <p>Balance: <span id="balance">0</span> <span id="currency-symbol-bal">$</span></p>
+      <button onclick="clearBudgetData()">Clear All Data</button>
+    </div>
+
+    <!-- Expense Chart -->
+    <h2>Expense Breakdown</h2>
+    <canvas id="expenseChart"></canvas>
+
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
